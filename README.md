@@ -119,6 +119,49 @@ Resources created by this bundle that can be connected to other bundles.
     - **`etc`** *(object)*: This field can be used to store arbitrary data to pass to downstream services. Can contain additional properties.
   - **`specs`** *(object)*: Cannot contain additional properties.
     - **`api`**
+    - **`aws`** *(object)*: .
+      - **`region`** *(string)*: AWS Region to provision in.
+
+        Examples:
+        ```json
+        "us-west-2"
+        ```
+
+    - **`azure`** *(object)*: .
+      - **`region`** *(string)*: Select the Azure region you'd like to provision your resources in.
+    - **`gcp`** *(object)*: .
+      - **`project`** *(string)*
+      - **`region`** *(string)*: The GCP region to provision resources in.
+
+        Examples:
+        ```json
+        "us-east1"
+        ```
+
+        ```json
+        "us-east4"
+        ```
+
+        ```json
+        "us-west1"
+        ```
+
+        ```json
+        "us-west2"
+        ```
+
+        ```json
+        "us-west3"
+        ```
+
+        ```json
+        "us-west4"
+        ```
+
+        ```json
+        "us-central1"
+        ```
+
 <!-- ARTIFACTS:END -->
 
 </details>
