@@ -1,7 +1,7 @@
 resource "massdriver_artifact" "api" {
   field                = "api"
   provider_resource_id = azurerm_communication_service.main.id
-  name                 = "Azure Communication Services ${azurerm_communication_service.main.name} (${azurerm_communication_service.main.id})"
+  name                 = "Azure Communication Services ${azurerm_communication_service.main.name}"
   artifact = jsonencode(
     {
       data = {
