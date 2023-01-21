@@ -15,7 +15,7 @@ locals {
     "Switzerland"   = "switzerlandnorth"
     "UAE"           = "uaenorth"
     "UK"            = "uksouth"
-    "United States" = "centralus"
+    "United States" = "westus2"
   }
   location = lookup(local.geo_location_map, var.location, "")
 }
