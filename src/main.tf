@@ -1,4 +1,8 @@
 locals {
+  /* This map is used to convert the geography of the Communication service to
+  a specific Azure region that the resource group can use to deploy. I picked a
+  region in each geography that seemed most reliable based on zone availability,
+  compliance offerings, and disaster recovery options. */
   geo_location_map = {
     "Africa"        = "southafricanorth"
     "Asia Pacific"  = "southeastasia"
