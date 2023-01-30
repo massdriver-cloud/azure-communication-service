@@ -110,58 +110,42 @@ Resources created by this bundle that can be connected to other bundles.
 <!-- ARTIFACTS:START -->
 ## Properties
 
-- **`api`** *(object)*: An arbitrary API. Cannot contain additional properties.
+- **`azure_communication_service`** *(object)*: . Cannot contain additional properties.
   - **`data`** *(object)*
-    - **`api`** *(object)*
-      - **`hostname`** *(string)*: Service host name. If a second host name is needed for internal vs external access, a second artifact is recommended.
-      - **`port`** *(integer)*: Port number. Minimum: `0`. Maximum: `65535`.
-      - **`protocol`** *(string)*: API protocol.
-    - **`etc`** *(object)*: This field can be used to store arbitrary data to pass to downstream services. Can contain additional properties.
-  - **`specs`** *(object)*: Cannot contain additional properties.
-    - **`api`**
-    - **`aws`** *(object)*: .
-      - **`region`** *(string)*: AWS Region to provision in.
+    - **`authentication`** *(object)*
+      - **`endpoint`** *(string)*: An HTTPS endpoint URL.
 
         Examples:
         ```json
-        "us-west-2"
+        "https://example.com/some/path"
         ```
 
+        ```json
+        "https://massdriver.cloud"
+        ```
+
+    - **`infrastructure`** *(object)*
+      - **`ari`** *(string)*: Azure Resource ID.
+
+        Examples:
+        ```json
+        "/subscriptions/12345678-1234-1234-abcd-1234567890ab/resourceGroups/resource-group-name/providers/Microsoft.Network/virtualNetworks/network-name"
+        ```
+
+    - **`security`** *(object)*: Azure Security Configuration. Cannot contain additional properties.
+      - **`iam`** *(object)*: IAM Roles And Scopes. Cannot contain additional properties.
+        - **`^[a-z/-]+$`** *(object)*
+          - **`role`**: Azure Role.
+
+            Examples:
+            ```json
+            "Storage Blob Data Reader"
+            ```
+
+          - **`scope`** *(string)*: Azure IAM Scope.
+  - **`specs`** *(object)*
     - **`azure`** *(object)*: .
       - **`region`** *(string)*: Select the Azure region you'd like to provision your resources in.
-    - **`gcp`** *(object)*: .
-      - **`project`** *(string)*
-      - **`region`** *(string)*: The GCP region to provision resources in.
-
-        Examples:
-        ```json
-        "us-east1"
-        ```
-
-        ```json
-        "us-east4"
-        ```
-
-        ```json
-        "us-west1"
-        ```
-
-        ```json
-        "us-west2"
-        ```
-
-        ```json
-        "us-west3"
-        ```
-
-        ```json
-        "us-west4"
-        ```
-
-        ```json
-        "us-central1"
-        ```
-
 <!-- ARTIFACTS:END -->
 
 </details>

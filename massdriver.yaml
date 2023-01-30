@@ -42,10 +42,10 @@ connections:
 
 artifacts:
   required:
-    - api
+    - azure_communication_service
   properties:
-    api:
-      $ref: massdriver/api
+    azure_communication_service:
+      $ref: massdriver/azure-communication-service
 
 ui:
   ui:order:

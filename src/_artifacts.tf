@@ -1,24 +1,28 @@
-resource "massdriver_artifact" "api" {
-  field                = "api"
+resource "massdriver_artifact" "azure-communication-service" {
+  field                = "azure_communication_service"
   provider_resource_id = azurerm_communication_service.main.id
   name                 = "Azure Communication Services ${azurerm_communication_service.main.name}"
   artifact = jsonencode(
     {
       data = {
-        etc = {
+        infrastructure = {
           ari = azurerm_communication_service.main.id
         }
-        api = {
-          hostname = "https://${azurerm_communication_service.main.name}.communication.azure.com"
-          port     = 443
+        authentication = {
+          endpoint = "https://${azurerm_communication_service.main.name}.communication.azure.com"
+        }
+        security = {
+          iam = {
+            "read/write" = {
+              role  = "Contributor"
+              scope = azurerm_communication_service.main.id
+            }
+          }
         }
       }
       specs = {
         azure = {
           region = azurerm_communication_service.main.data_location
-        }
-        api = {
-          version = "n/a"
         }
       }
     }
