@@ -13,7 +13,7 @@ resource "massdriver_artifact" "azure-communication-service" {
         }
         security = {
           iam = {
-            "read/write" = {
+            "read_write" = {
               role  = "Contributor"
               scope = azurerm_communication_service.main.id
             }
