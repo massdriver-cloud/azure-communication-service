@@ -2,8 +2,8 @@ schema: draft-07
 name: "azure-communication-service"
 description: "Azure Communication Services are cloud-based services with REST APIs and client library SDKs available to help you integrate communication into your applications. You can add communication to your applications without being an expert in underlying technologies such as media encoding or telephony."
 source_url: github.com/massdriver-cloud/azure-communication-service
-access: "public"
-type: "infrastructure"
+access: public
+type: infrastructure
 
 params:
   examples: []

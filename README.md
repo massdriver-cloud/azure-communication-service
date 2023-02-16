@@ -134,7 +134,7 @@ Resources created by this bundle that can be connected to other bundles.
 
     - **`security`** *(object)*: Azure Security Configuration. Cannot contain additional properties.
       - **`iam`** *(object)*: IAM Roles And Scopes. Cannot contain additional properties.
-        - **`^[a-z/-]+$`** *(object)*
+        - **`^[a-z]+[a-z_]*[a-z]$`** *(object)*
           - **`role`**: Azure Role.
 
             Examples:
