@@ -1,0 +1,30 @@
+# azure-communication-service
+Azure Communication Services are cloud-based services with REST APIs and client library SDKs available to help you integrate communication into your applications. You can add communication to your applications without being an expert in underlying technologies such as media encoding or telephony.
+
+## Use Cases
+You can connect custom client apps, custom services, and the publicly switched telephony network (PSTN) to your communications experience. You can acquire [phone numbers](https://learn.microsoft.com/en-us/azure/communication-services/concepts/telephony/plan-solution) directly through Azure Communication Services REST APIs, SDKs, or the Azure portal; and use these numbers for SMS or calling applications or you can simply integrate email capabilities to your applications using production-ready email SDKs. Azure Communication Services direct routing allows you to use SIP and session border controllers to connect your own PSTN carriers and bring your own phone numbers.
+
+### Business to consumer applications
+Engage external customers using voice, video, and text chat in browser and native apps. You can send and receive SMS messages, or use the [Interactive Voice Response system (IVR)](https://github.com/microsoft/botframework-telephony/blob/main/EnableTelephony.md) using a phone number acquired through Azure. You can also integrate through Microsoft Teams to connect consumers to Teams meetings hosted by employees; ideal for remote healthcare, banking, and product support scenarios.
+
+### Consumer to consumer applications
+Build engaging C2C interactions with voice, video, and rich text chat. Any type of UI can be built using [Azure Communication Service SDKS](https://learn.microsoft.com/en-us/azure/communication-services/concepts/sdk-options).
+
+## Features
+### API endpoint artifact
+The Azure Communication Service will produce an endpoint artifact. This includes the endpoint and security policies needed to connect to the Azure Communication Service.
+
+## Design
+Our bundle includes the following design choices to help simplify your deployment:
+### Automatic region mapping
+The bundle will automatically map the geography you select for the Azure Communication Service to also deploy the resource group into the best region of the same geography.
+
+## Security
+In order to improve security, we implement a few key safeguards.
+### Automatic RBAC assignments
+All applications that connect to the Communication service bundle will automatically be given RBAC permissions to the service. This will allow the applications to connect to the service without needing to use the connection string and key, which is less secure. The managed identity of your application will be assigned the `Azure Communication Service Contributor` role.
+
+## Trade-offs
+* Acquiring phone numbers requires a paid Azure subscription. Phone numbers can't be acquired on trial accounts or using Azure free credits.
+* Azure Email Communication service is still in public preview, and is not available for production use.
+* AzureRM Terraform does not currently support integrating Azure Communication Service with Azure Notification Hub.
