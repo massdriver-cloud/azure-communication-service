@@ -1,14 +1,12 @@
 schema: draft-07
-name: "azure-communication-service"
-description: "Azure Communication Services are cloud-based services with REST APIs and client library SDKs available to help you integrate communication into your applications. You can add communication to your applications without being an expert in underlying technologies such as media encoding or telephony."
-source_url: github.com/massdriver-cloud/azure-communication-service
-access: public
-type: infrastructure
-
+name: azure-communication-service
+version: 1.0.0
+description: Azure Communication Services are cloud-based services with REST APIs and client library SDKs available to help you integrate communication into your applications. You can add communication to your applications without being an expert in underlying technologies such as media encoding or telephony.
+source_url: https://github.com/massdriver-cloud/azure-communication-service
 params:
   examples: []
   required:
-    - location
+  - location
   properties:
     location:
       type: string
@@ -16,38 +14,41 @@ params:
       description: Specify a geography to retain chat messages and resource data.
       default: United States
       enum:
-        - Africa
-        - Asia Pacific
-        - Australia
-        - Brazil
-        - Canada
-        - Europe
-        - France
-        - Germany
-        - India
-        - Japan
-        - Korea
-        - Norway
-        - Switzerland
-        - UAE
-        - UK
-        - United States
-
+      - Africa
+      - Asia Pacific
+      - Australia
+      - Brazil
+      - Canada
+      - Europe
+      - France
+      - Germany
+      - India
+      - Japan
+      - Korea
+      - Norway
+      - Switzerland
+      - UAE
+      - UK
+      - United States
 connections:
   required:
-    - azure_service_principal
+  - azure_service_principal
   properties:
     azure_service_principal:
-      $ref: massdriver/azure-service-principal
-
+      "$ref": massdriver/azure-service-principal
 artifacts:
   required:
-    - azure_communication_service
+  - azure_communication_service
   properties:
     azure_communication_service:
-      $ref: massdriver/azure-communication-service
-
+      "$ref": massdriver/azure-communication-service
 ui:
   ui:order:
-    - location
-    - "*"
+  - location
+  - "*"
+steps:
+- path: src
+  provisioner: opentofu
+  config:
+    checkov:
+      enable: true
